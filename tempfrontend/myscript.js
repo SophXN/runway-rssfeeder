@@ -27,11 +27,12 @@ function showFeed() {
   let titlelist = xmlDoc.getElementsByTagName("name");
   let datelist = xmlDoc.getElementsByTagName("updated")
   let contentlist = xmlDoc.getElementsByTagName("content")
+  let ratinglist = xmlDoc.getElementsByTagName("im:rating")
   const browsername = navigator.appName;
 
   for (i = 1; i < maxitems; i++) {
     if (titlelist[i].firstChild !== "undefined") {
-      feedBody = feedBody + `<div>Reviewer:  ${titlelist[i].firstChild.nodeValue} <br/> Date: ${datelist[i].firstChild.nodeValue}</div>` + `<div>${contentlist[i].firstChild.nodeValue}</div>` + "<br />"
+      feedBody = feedBody + `<div>Reviewer:  ${titlelist[i].firstChild.nodeValue} <br/> Date: ${datelist[i].firstChild.nodeValue} <br/> Rating: ${ratinglist[i].firstChild.nodeValue}/5 <br /> Comment: ${contentlist[i].firstChild.nodeValue}</div>` + "<br />"
     }
   }
 
