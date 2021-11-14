@@ -1,0 +1,11 @@
+.review-item {
+  background-color: rgba(106, 106, 225, 0.53);
+  padding: 2rem;
+  margin: 3rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgb(53, 52, 52);
+  .review-text {
+    font-weight: 900;
+    padding: 1rem;
+  }
+}

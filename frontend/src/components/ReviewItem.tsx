@@ -1,5 +1,6 @@
 import React from "react"
 import { Review } from "../entities/Review"
+import "./ReviewItem.scss"
 
 export const ReviewItem: React.FC<Review> = ({
   reviewer,
@@ -8,11 +9,11 @@ export const ReviewItem: React.FC<Review> = ({
   comment,
 }) => {
   return (
-    <article className='review-item'>
-      <h3>{reviewer}</h3>
-      <h4>{date}</h4>
-      <h4>{rating}/5</h4>
-      <p>{comment}</p>
-    </article>
+    <div className='review-item'>
+      <div>{reviewer}</div>
+      <div>{date}</div>
+      <div>{rating}/5</div>
+      <div className='review-text'>{comment}</div>
+    </div>
   )
 }

@@ -11,3 +11,4 @@
 ## Frontend
 
 1. Render XML in JS (https://www.youtube.com/watch?v=KIP1sU8x1g0&ab_channel=MrX)
+2. Build out FE with React/TS

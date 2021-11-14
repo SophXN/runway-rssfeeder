@@ -1,6 +1,8 @@
 import React from "react"
 import { Review } from "../entities/Review"
 import { ReviewItem } from "./ReviewItem"
+import "./ReviewList.scss"
+
 type Props = {
   reviews: Review[]
 }
