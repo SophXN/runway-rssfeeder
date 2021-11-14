@@ -34,7 +34,7 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fileServer := http.FileServer(http.Dir("../frontend"))
+	fileServer := http.FileServer(http.Dir("../tempfrontend"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/form", formHandler)
