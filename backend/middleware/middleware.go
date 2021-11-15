@@ -101,3 +101,29 @@ func getAllReview() []primitive.M {
 	cur.Close(context.Background())
 	return results
 }
+
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/hello" {
+		http.Error(w, "404 not found.", http.StatusNotFound)
+		return
+	}
+
+	if r.Method != "GET" {
+		http.Error(w, "Method is not supported.", http.StatusNotFound)
+		return
+	}
+
+	fmt.Fprintf(w, "Hello!")
+}
+
+func GetXML(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Context-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	payload := getAllReview()
+	json.NewEncoder(w).Encode(payload)
+
+	fileServer := http.FileServer(http.Dir("../tempfrontend"))
+
+	http.Handle("/", fileServer)
+	http.HandleFunc("/hello", helloHandler)
+}

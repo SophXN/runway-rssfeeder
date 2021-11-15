@@ -2,7 +2,6 @@
 let xmlDoc;
 let request;
 let docname = "https://itunes.apple.com/us/rss/customerreviews/page=1/id=360593530/sortby=mostrecent/xml?urlDesc=/customerreviews/page=1/id=360593530/sortby=mostrecent/xml";
-let doctype= "unknown";
 
 function loadXML() {
   try {
@@ -28,15 +27,14 @@ function showFeed() {
   let datelist = xmlDoc.getElementsByTagName("updated")
   let contentlist = xmlDoc.getElementsByTagName("content")
   let ratinglist = xmlDoc.getElementsByTagName("im:rating")
-  const browsername = navigator.appName;
 
-  for (i = 1; i < maxitems; i++) {
+  for (let i = 1; i < maxitems; i++) {
     if (titlelist[i].firstChild !== "undefined") {
       feedBody = feedBody + `<div>Reviewer:  ${titlelist[i].firstChild.nodeValue} <br/> Date: ${datelist[i].firstChild.nodeValue} <br/> Rating: ${ratinglist[i].firstChild.nodeValue}/5 <br /> Comment: ${contentlist[i].firstChild.nodeValue}</div>` + "<br />"
     }
   }
 
-  document.getElementById("reviews").innerHTML = feedBody;
+  document.getElementById("app").innerHTML = feedBody;
 }
 
 loadXML();
